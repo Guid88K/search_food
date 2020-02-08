@@ -1,0 +1,36 @@
+body, html , .container-fluid{
+    height: 100%;
+}
+.bg {
+    /* The image used */
+    background-image: url('image/img.jpg');
+
+    /* Half height */
+    height: 77%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.EnjCook{
+
+}
+.recipes{
+   font-size: 30px;
+
+}
+@media( max-device-width: 400px){
+    #ll{
+        position: fixed;!important;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+    }
+}
+/* .navbar-nav > li > a:hover, .navbar-item > li > a:focus {*/
+/*    background-color: black!important;*/
+/*    color: white!important;*/
+/*}*/
