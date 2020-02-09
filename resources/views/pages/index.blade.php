@@ -17,8 +17,8 @@
             <tr>
                 <td class="align-middle">
                     <div>
-                        <h1 class="align-middle  EnjCook font-weight-bold text-white text-center ">Насолоджуйтесь
-                            приготуванням їжі</h1>
+                        <h2 class="align-middle  EnjCook font-weight-bold text-white text-center ">Насолоджуйтесь
+                            приготуванням їжі</h2>
                         {{--                        <p class="align-middle mt-3 recipes font-weight-bold  text-white text-center ">Понад--}}
                         {{--                            {{$count->count()}} смачних рецептів.</p>--}}
 
