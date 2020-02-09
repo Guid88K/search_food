@@ -150,7 +150,7 @@
                             </div>
 
 
-                            <p class="my-5 ml-5 res_description">{{$r->recipe_description}}</p>
+                            <p class="my-5 ml-5 res_description">{{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}</p>
                         </div>
 
 
@@ -172,7 +172,7 @@
                                 <i class="fa fa-star  fa-2x"></i>
                                 <span> 5 star</span>
                             </div>
-                            <p class="my-5 mr-5 res_description">{{$r->recipe_description}}</p>
+                            <p class="my-5 mr-5 res_description">{{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}</p>
                         </div>
 
                     </div>
