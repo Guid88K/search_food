@@ -25,7 +25,7 @@
                     </div>
                     <div class="text-center">
                         <button type="button"
-                                class=" btn btn-success mb-5 bay-diagnosis-btn col-sm-2  " data-toggle="modal"
+                                class=" btn btn-success mb-5 bay-diagnosis-btn col-sm-4 col-7  " data-toggle="modal"
                                 data-target="#recipe_search">Підібрати рецепт
                         </button>
                     </div>
