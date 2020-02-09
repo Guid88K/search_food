@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('fonts/font-awesome.min.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid m-0 p-0 ">
     <div class="bg">
 
-        <table style="max-height: 20%; width: 100%; min-height: 90%;">
+        <table style="max-height: 20%; width: 100%; min-height: 95%;">
             <tbody>
             <tr>
                 <td class="align-middle">
@@ -21,11 +24,10 @@
                             приготуванням їжі</h2>
                         {{--                        <p class="align-middle mt-3 recipes font-weight-bold  text-white text-center ">Понад--}}
                         {{--                            {{$count->count()}} смачних рецептів.</p>--}}
-
                     </div>
-                    <div class="text-center">
+                    <div class="text-center mt-5">
                         <button type="button"
-                                class=" btn btn-success mb-5 bay-diagnosis-btn col-sm-4 col-7  " data-toggle="modal"
+                                class=" btn btn-success mb-5 bay-diagnosis-btn col-md-2 col-7  " data-toggle="modal"
                                 data-target="#recipe_search">Підібрати рецепт
                         </button>
                     </div>
@@ -80,7 +82,7 @@
     </div>
 
     <div id="ll">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-lg-3 ">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,30 +90,30 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-5">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{url('/recipe')}}">Всі<span class="sr-only">(current)</span></a>
+                        <a class="nav-link ml-5 mr-4 " href="{{url('/recipe')}}">Всі<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{url('/search_first')}}">Перші страви</a>
+                        <a class="nav-link mx-4 " href="{{url('/search_first')}}">Перші страви</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/search_second')}}">Другі страви</a>
+                        <a class="nav-link mx-4 " href="{{url('/search_second')}}">Другі страви</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/search_salad')}}">Салати</a>
+                        <a class="nav-link mx-4 " href="{{url('/search_salad')}}">Салати</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/search_snack')}}">Закуска</a>
+                        <a class="nav-link mx-4 " href="{{url('/search_snack')}}">Закуска</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/search_baking')}}">Випічка</a>
+                        <a class="nav-link mx-4 " href="{{url('/search_baking')}}">Випічка</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/search_dessert')}}">Десерти</a>
+                        <a class="nav-link mx-4 " href="{{url('/search_dessert')}}">Десерти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/search_drinks')}}">Напої</a>
+                        <a class="nav-link mx-4 " href="{{url('/search_drinks')}}">Напої</a>
                     </li>
                 </ul>
             </div>
@@ -136,18 +138,19 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12  order-lg-2 order-md-2 order-sm-2 order-xs-2 order-2">
                         <div class="m-3 ">
-                            <h3>{{$r->recipe_name}}</h3>
-                            <div>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                            <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
+                            <hr/>
+                            <div class="mt-4 ml-5">
+                                <i class="fa fa-star  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
                                 <span> 5 star</span>
                             </div>
 
 
-                            <p class="my-5 ">{{$r->recipe_description}}</p>
+                            <p class="my-5 ml-5 res_description">{{$r->recipe_description}}</p>
                         </div>
 
 
@@ -159,16 +162,17 @@
 
                     <div class="col-lg-6 col-md-12 col-sm-12 order-lg-1 order-md-2 order-sm-2 order-xs-2 order-2">
                         <div class="m-3 ">
-                            <h3>{{$r->recipe_name}}</h3>
-                            <div>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                            <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
+                            <hr/>
+                            <div class="mt-4 mr-5">
+                                <i class="fa fa-star  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
                                 <span> 5 star</span>
                             </div>
-                            <p class="my-5">{{$r->recipe_description}}</p>
+                            <p class="my-5 mr-5 res_description">{{$r->recipe_description}}</p>
                         </div>
 
                     </div>

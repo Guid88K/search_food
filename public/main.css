@@ -16,12 +16,37 @@ body, html , .container-fluid{
 }
 
 .EnjCook{
+    font-family: 'Russo One', sans-serif;
 
 }
+
+.res_description{
+    font-family: 'Noto Sans', sans-serif;
+}
+
 .recipes{
    font-size: 30px;
 
 }
+
+
+.fa-star{
+    color: #CC8E15;
+}
+
+.recipeName{
+    font-family: 'Pacifico', cursive;
+    font-size: 55px;
+color: black;
+
+}
+hr{
+    text-align: center;
+    width:250px;
+  padding: 1px;
+    background-color:black;
+}
+
 @media( max-device-width: 400px){
     #ll{
         position: fixed;!important;
@@ -30,6 +55,8 @@ body, html , .container-fluid{
         z-index: 100;
     }
 }
+
+
 /* .navbar-nav > li > a:hover, .navbar-item > li > a:focus {*/
 /*    background-color: black!important;*/
 /*    color: white!important;*/
