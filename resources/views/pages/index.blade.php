@@ -27,7 +27,7 @@
                     </div>
                     <div class="text-center mt-5">
                         <button type="button"
-                                class=" btn btn-success mb-5 bay-diagnosis-btn col-md-2 col-7  " data-toggle="modal"
+                                class=" btn btn-outline-success mb-5 bay-diagnosis-btn col-md-2 col-7  " data-toggle="modal"
                                 data-target="#recipe_search">Підібрати рецепт
                         </button>
                     </div>
@@ -139,7 +139,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12  order-lg-2 order-md-2 order-sm-2 order-xs-2 order-2">
                         <div class="m-3 ">
                             <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
-                            <hr/>
+                            <hr class="hrr"/>
                             <div class="mt-4 ml-5">
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
@@ -150,7 +150,7 @@
                             </div>
 
 
-                            <p class="my-5 ml-5 res_description">{{$r->recipe_description}}</p>
+                            <p class=" ml-2 res_description">{{$r->recipe_description}}</p>
                         </div>
 
 
@@ -163,7 +163,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 order-lg-1 order-md-2 order-sm-2 order-xs-2 order-2">
                         <div class="m-3 ">
                             <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
-                            <hr/>
+                            <hr class="hrr"/>
                             <div class="mt-4 mr-5">
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
@@ -172,7 +172,7 @@
                                 <i class="fa fa-star  fa-2x"></i>
                                 <span> 5 star</span>
                             </div>
-                            <p class="my-5 mr-5 res_description">{{$r->recipe_description}}</p>
+                            <p class=" mr-2 res_description">{{$r->recipe_description}}</p>
                         </div>
 
                     </div>

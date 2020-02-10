@@ -7,39 +7,80 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('fonts/font-awesome.min.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid  m-0 p-0">
+    <div id="ll">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-lg-3 ">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link ml-5 mr-4 " href="{{url('/recipe')}}">Всі<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-4 " href="{{url('/search_first')}}">Перші страви</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-4 " href="{{url('/search_second')}}">Другі страви</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-4 " href="{{url('/search_salad')}}">Салати</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-4 " href="{{url('/search_snack')}}">Закуска</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-4 " href="{{url('/search_baking')}}">Випічка</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-4 " href="{{url('/search_dessert')}}">Десерти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-4 " href="{{url('/search_drinks')}}">Напої</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <div class="row  p-0 m-0">
-        <div class="col-xl-6 mt-3">
+        <div class="col-md-12">
+            <h1 class="text-md-center ml-lg-5 text-lg-left recipeName font-weight-bold mt-3">{{$recipe->recipe_name}}</h1>
+            <hr>
+        </div>
+        <div class="col-lg-11 mx-auto mt-3">
             <img class="img-fluid" src="{{asset('upload/'.$recipe->recipe_image)}}">
         </div>
-        <div class="col-xl-6 mt-3 ">
-            <h1 class="text-center font-weight-bold mt-3">{{$recipe->recipe_name}}</h1>
-            <p class="font-weight-bold mt-3 ingredFont font-weight-bold recipes ml-5">
-                Інгредієнти:</p>
-            <div class="row p-0 m-0">
-                <div class="col-md-6">
-                    @foreach($food_ing as $i)
-                        <ul>
-                            <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
-                        </ul>
-                    @endforeach
+
+        <div class="row m-0  p-0">
+
+                <div class="col-md-10 mx-auto mt-4 ">
+                    <p>{{$recipe->recipe_description}}</p>
                 </div>
-            </div>
+
+        </div>
+        <div class="col-lg-10 mx-auto mt-3 ">
+            <p class=" mt-3 text-center  recipes ml-5">
+                Інгредієнти:</p>
+{{--            <div class="row p-0 m-0"> зробити так щоб інгредієнти були роздідені в двох колонках--}}
+{{--                <div class="col-md-6">--}}
+{{--                    @foreach($food_ing as $i)--}}
+{{--                        <ul>--}}
+{{--                            <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>--}}
+{{--                        </ul>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <hr>
         </div>
     </div>
 
-    <div class="row m-0  p-0">
-        <div class="col-md-12 my-2">
-            <h1 class="text-center  font-weight-bold mt-3">Опис</h1>
-        </div>
-        <div class="container">
-            <div class="col-md-12 my-2">
-                <p>{{$recipe->recipe_description}}</p>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <h2 class="text-center  font-weight-bold ">Приготування</h2>
         @foreach($food_recipe as $fr)
