@@ -29,6 +29,13 @@ body, html , .container-fluid{
 
 }
 
+.step{
+    font-size: 55px;
+}
+
+.fontGreat{
+    font-family: 'Rye', cursive;
+}
 
 .fa-star{
     color: #CC8E15;

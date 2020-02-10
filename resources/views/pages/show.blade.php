@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('fonts/font-awesome.min.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rye&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid  m-0 p-0">
@@ -54,19 +55,28 @@
             <h1 class="text-md-center ml-lg-5 text-lg-left recipeName font-weight-bold mt-3">{{$recipe->recipe_name}}</h1>
             <hr>
         </div>
-        <div class="col-lg-11 mx-auto mt-3">
+
+        <div class="col-lg-10 mx-auto mt-3">
+            <div class="mb-3 text-right">
+                <i class="fa fa-star  fa-2x"></i>
+                <i class="fa fa-star  fa-2x"></i>
+                <i class="fa fa-star  fa-2x"></i>
+                <i class="fa fa-star  fa-2x"></i>
+                <i class="fa fa-star  fa-2x"></i>
+
+            </div>
             <img class="img-fluid" src="{{asset('upload/'.$recipe->recipe_image)}}">
         </div>
 
         <div class="row m-0  p-0">
 
-                <div class="col-md-10 mx-auto mt-4 ">
-                    <p>{{$recipe->recipe_description}}</p>
+                <div class="col-md-9 mx-auto mt-4 ">
+                    <p class="">{{$recipe->recipe_description}}</p>
                 </div>
 
         </div>
         <div class="col-lg-10 mx-auto mt-3 ">
-            <p class=" mt-3 text-center  recipes ml-5">
+            <p class=" fontGreat mt-3 text-center  recipes ml-5">
                 Інгредієнти:</p>
 {{--            <div class="row p-0 m-0"> зробити так щоб інгредієнти були роздідені в двох колонках--}}
 {{--                <div class="col-md-6">--}}
@@ -82,26 +92,28 @@
     </div>
 
     <div class="container">
-        <h2 class="text-center  font-weight-bold ">Приготування</h2>
+        <h2 class="text-center mb-4 fontGreat font-weight-bold ">Приготування</h2>
         @foreach($food_recipe as $fr)
             <div class="blocks">
-                <div class="row m-0  p-0">
-                    <div class="col-md-12 my-3">
-                        <h2 class="text-left  font-weight-bold ">Крок {{$loop->index+1}}</h2>
+                <div class="row m-0 mb-4  p-0">
+                    <div class="col-md-2 mx-auto my-auto">
+                        <h2 class="text-left step fontGreat font-weight-bold "> {{$loop->index+1}} крок</h2>
                     </div>
-                </div>
 
-                <div class="row p-0   m-0">
-                    <div class="col-md-6 m-0 p-0">
+                    <div class="col-md-10 m-0 px-3 my-auto ">
+
+                        <p class="px-2 ">{{$fr->description}}</p>
+
+                    </div>
+            </div>
+
+                <div class="row">
+                    <div class="col-md-12 m-0 p-0">
                         <img class="img-fluid" src="{{asset('upload/'.$fr->image)}}">
-                    </div>
-                    <div class="col-md-6 m-0 px-3 my-auto ">
-
-                        <p class="px-2">{{$fr->description}}</p>
-
                     </div>
                 </div>
             </div>
+            <hr class="my-4">
         @endforeach
     </div>
 
