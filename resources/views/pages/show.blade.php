@@ -65,7 +65,7 @@
                 <i class="fa fa-star  fa-2x"></i>
 
             </div>
-            <img class="img-fluid" src="{{asset('upload/'.$recipe->recipe_image)}}">
+            <img class="img-fluid mx-auto" src="{{asset('upload/'.$recipe->recipe_image)}}">
         </div>
 
         <div class="row m-0  p-0">
