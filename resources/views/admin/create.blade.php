@@ -1226,9 +1226,14 @@ MAIN CONTENT LAYOUT
                                             {{--                                            <input type="text" class="form-control"--}}
                                             {{--                                                   aria-label="Text input with checkbox" name="ing[]"/>--}}
                                             <input
-                                                type="text" class="form-control"
+                                                type="text" class="form-control" list="ing"
                                                 aria-label="Text input with checkbox" name="ing[]"/>
                                         </div>
+                                        <datalist id="ing">
+                                            @foreach($ingredient as $i)
+                                                <option value="{{$i->name}}">{{$i->name}}</option>
+                                            @endforeach
+                                        </datalist>
                                         <input
                                             type="text" class="form-control col-xs-2 ml-3"
                                             aria-label="Text input with checkbox" name="count[]"/>
@@ -1376,7 +1381,7 @@ MAIN CONTENT LAYOUT
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        var max_fields = 10;
+        var max_fields = 40;
         var wrapper2 = $(".container2");
         var add_button1 = $(".add_form_field_copy");
 
@@ -1393,8 +1398,13 @@ MAIN CONTENT LAYOUT
                     '<div class="input-group mb-3">\n' +
                     '<div class="col-md-7 p-0">\n' +
                     '<input type="text" class="form-control"\n' +
-                    'aria-label="Text input with checkbox" name="ing[]"/>\n' +
+                    'aria-label="Text input with checkbox" list="ing" name="ing[]"/>\n' +
                     '</div>\n' +
+                    '<datalist id="ing">\n' +
+                    '                                            @foreach($ingredient as $i)\n' +
+                    '                                                <option value="{{$i->name}}">{{$i->name}}</option>\n' +
+                    '                                            @endforeach\n' +
+                    '                                        </datalist>'+
                     '<input\n' +
                     'type="text" class="form-control col-xs-2 ml-3"\n' +
                     'aria-label="Text input with checkbox" name="count[]"/>\n' +
@@ -1465,10 +1475,7 @@ MAIN CONTENT LAYOUT
         });
         $(wrapper).on("click", ".delete", function (e) {
             e.preventDefault();
-
-            var elem = document.getElementById("div");
-            elem.remove();
-
+            $(this).parent('div').parent('div').parent('div').parent('div').remove();
             x--;
         });
     });

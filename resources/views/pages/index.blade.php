@@ -27,7 +27,7 @@
                     </div>
                     <div class="text-center mt-5">
                         <button type="button"
-                                class=" btn btn-outline-success mb-5 bay-diagnosis-btn col-md-2 col-7  " data-toggle="modal"
+                                class=" btn btn-success mb-5 bay-diagnosis-btn col-md-2 col-7  " data-toggle="modal"
                                 data-target="#recipe_search">Підібрати рецепт
                         </button>
                     </div>
@@ -42,10 +42,10 @@
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-light" id="exampleModalLabel">Пошук рецепту</h5>
+                    <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                        <span class="text-light" aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -71,8 +71,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-dark">Find recipe</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+                            <button type="submit" class="btn btn-dark">Пошук</button>
                         </div>
                     </form>
                 </div>
@@ -82,7 +82,7 @@
     </div>
 
     <div id="ll">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-lg-3 ">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -216,7 +216,8 @@
         <div class="col-lg-10 mx-auto">
             <nav aria-label="Page navigation example">
                 <ul class="pagination  justify-content-center">
-                    {!! $recipe->links('vendor.pagination.default') !!}
+                    {{$recipe->links('vendor.pagination.default')}}
+
                     {{--                        <li class="page-item ">--}}
                     {{--                            <a class="page-link rounded-circle text-white bg-dark" href="#" aria-label="Previous">--}}
                     {{--                                <span aria-hidden="true">&laquo;</span>--}}

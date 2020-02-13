@@ -23,7 +23,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link ml-5 mr-4 " href="{{url('/recipe')}}">Всі<span class="sr-only">(current)</span></a>
+                        <a class="nav-link ml-5 mr-4 " href="{{url('/recipe')}}">Всі<span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mx-4 " href="{{url('/search_first')}}">Перші страви</a>
@@ -70,23 +71,43 @@
 
         <div class="row m-0  p-0">
 
-                <div class="col-md-9 mx-auto mt-4 ">
-                    <p class="">{{$recipe->recipe_description}}</p>
-                </div>
+            <div class="col-md-9 mx-auto mt-4 ">
+                <p class="">{{$recipe->recipe_description}}</p>
+            </div>
 
         </div>
         <div class="col-lg-10 mx-auto mt-3 ">
             <p class=" text-center mb-4 fontGreat font-weight-bold h2 ">
                 Інгредієнти:</p>
-{{--            <div class="row p-0 m-0"> зробити так щоб інгредієнти були роздідені в двох колонках--}}
-{{--                <div class="col-md-6">--}}
-{{--                    @foreach($food_ing as $i)--}}
-{{--                        <ul>--}}
-{{--                            <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>--}}
-{{--                        </ul>--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            @foreach($food_ing as $i)
+                @if($loop->index%2 == 0)
+                    <div class="row p-0 m-0">
+                        <div class="col-md-6">
+
+
+                            <ul>
+                                <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+            @foreach($food_ing as $i)
+                @if($loop->index%2 == 1)
+                    <div class="row p-0 m-0">
+                        <div class="col-md-6">
+
+                            <ul>
+                                <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                @endif
+            @endforeach
             <hr>
         </div>
     </div>
@@ -101,10 +122,10 @@
                     </div>
                 </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="px-2 ">{{$fr->description}}</p>
-                        </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="px-2 ">{{$fr->description}}</p>
+                    </div>
 
                     <div class="col-md-6 m-0  p-0">
                         <img class="img-fluid" src="{{asset('upload/'.$fr->image)}}">
@@ -115,27 +136,27 @@
         @endforeach
     </div>
 
-{{--    <div class="row mt-5 m-0">--}}
-{{--        <div class="col-lg-10 mx-auto">--}}
-{{--            <nav aria-label="Page navigation example">--}}
-{{--                <ul class="pagination  justify-content-center">--}}
-{{--                    <li class="page-item ">--}}
-{{--                        <a class="page-link rounded-circle text-white bg-dark" href="#" aria-label="Previous">--}}
-{{--                            <span aria-hidden="true">&laquo;</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="  page-item"><a class="page-link rounded-circle  text-white bg-dark" href="#">1</a></li>--}}
-{{--                    <li class="page-item"><a class="page-link rounded-circle  text-white bg-dark" href="#">2</a></li>--}}
-{{--                    <li class="page-item"><a class="page-link rounded-circle  text-white bg-dark" href="#">3</a></li>--}}
-{{--                    <li class="page-item">--}}
-{{--                        <a class="page-link rounded-circle text-white bg-dark" href="#" aria-label="Next">--}}
-{{--                            <span aria-hidden="true">&raquo;</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </nav>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    {{--    <div class="row mt-5 m-0">--}}
+    {{--        <div class="col-lg-10 mx-auto">--}}
+    {{--            <nav aria-label="Page navigation example">--}}
+    {{--                <ul class="pagination  justify-content-center">--}}
+    {{--                    <li class="page-item ">--}}
+    {{--                        <a class="page-link rounded-circle text-white bg-dark" href="#" aria-label="Previous">--}}
+    {{--                            <span aria-hidden="true">&laquo;</span>--}}
+    {{--                        </a>--}}
+    {{--                    </li>--}}
+    {{--                    <li class="  page-item"><a class="page-link rounded-circle  text-white bg-dark" href="#">1</a></li>--}}
+    {{--                    <li class="page-item"><a class="page-link rounded-circle  text-white bg-dark" href="#">2</a></li>--}}
+    {{--                    <li class="page-item"><a class="page-link rounded-circle  text-white bg-dark" href="#">3</a></li>--}}
+    {{--                    <li class="page-item">--}}
+    {{--                        <a class="page-link rounded-circle text-white bg-dark" href="#" aria-label="Next">--}}
+    {{--                            <span aria-hidden="true">&raquo;</span>--}}
+    {{--                        </a>--}}
+    {{--                    </li>--}}
+    {{--                </ul>--}}
+    {{--            </nav>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
 
 
     <div class="row mt-3 m-0">
