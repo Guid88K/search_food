@@ -76,7 +76,7 @@
 
         </div>
         <div class="col-lg-10 mx-auto mt-3 ">
-            <p class=" fontGreat mt-3 text-center  recipes ml-5">
+            <p class=" text-center mb-4 fontGreat font-weight-bold h2 ">
                 Інгредієнти:</p>
 {{--            <div class="row p-0 m-0"> зробити так щоб інгредієнти були роздідені в двох колонках--}}
 {{--                <div class="col-md-6">--}}
@@ -96,24 +96,22 @@
         @foreach($food_recipe as $fr)
             <div class="blocks">
                 <div class="row m-0 mb-4  p-0">
-                    <div class="col-md-2 mx-auto my-auto">
+                    <div class="col-md-12 mx-auto my-auto">
                         <h2 class="text-left step fontGreat font-weight-bold "> {{$loop->index+1}} крок</h2>
                     </div>
+                </div>
 
-                    <div class="col-md-10 m-0 px-3 my-auto ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="px-2 ">{{$fr->description}}</p>
+                        </div>
 
-                        <p class="px-2 ">{{$fr->description}}</p>
-
-                    </div>
-            </div>
-
-                <div class="row">
-                    <div class="col-md-12 m-0 p-0">
+                    <div class="col-md-6 m-0  p-0">
                         <img class="img-fluid" src="{{asset('upload/'.$fr->image)}}">
                     </div>
                 </div>
             </div>
-            <hr class="my-4">
+            <hr class="my-4 ">
         @endforeach
     </div>
 

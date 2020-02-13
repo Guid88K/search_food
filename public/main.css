@@ -16,7 +16,9 @@ body, html , .container-fluid{
 }
 
 .EnjCook{
-    font-family: 'Russo One', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Coda Caption', sans-serif;
 
 }
 
@@ -37,9 +39,10 @@ body, html , .container-fluid{
     font-family: 'Rye', cursive;
 }
 
-.fa-star{
+.fa-star-half-empty,.fa-star-o,.fa-star{
     color: #CC8E15;
 }
+
 
 .recipeName{
     font-family: 'Pacifico', cursive;
@@ -63,6 +66,13 @@ color: black;
         width: 100%;
         z-index: 100;
     }
+
+    .EnjCook{
+        font-size: 27px;
+        font-family:'Roboto Condensed', sans-serif;
+
+    }
+
 }
 
 

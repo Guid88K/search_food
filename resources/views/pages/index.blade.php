@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('fonts/font-awesome.min.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +20,7 @@
             <tr>
                 <td class="align-middle">
                     <div>
-                        <h2 class="align-middle  EnjCook font-weight-bold text-white text-center ">Насолоджуйтесь
+                        <h2 class="align-middle EnjCook font-weight-bold text-white text-center ">Насолоджуйтесь
                             приготуванням їжі</h2>
                         {{--                        <p class="align-middle mt-3 recipes font-weight-bold  text-white text-center ">Понад--}}
                         {{--                            {{$count->count()}} смачних рецептів.</p>--}}
@@ -140,13 +140,13 @@
                         <div class="m-3 ">
                             <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
                             <hr class="hrr"/>
-                            <div class="mt-4 ml-5">
+                            <div class="mt-4 ml-5 text-right">
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
-                                <i class="fa fa-star  fa-2x"></i>
-                                <i class="fa fa-star  fa-2x"></i>
-                                <span> 5 star</span>
+                                <i class="fa fa-star-half-empty fa-2x"></i>
+                                <i class="fa fa-star-o  fa-2x"></i>
+
                             </div>
 
 
@@ -168,9 +168,9 @@
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
-                                <i class="fa fa-star  fa-2x"></i>
-                                <i class="fa fa-star  fa-2x"></i>
-                                <span> 5 star</span>
+                                <i class="fa fa-star-half-empty  fa-2x"></i>
+                                <i class="fa fa-star-o  fa-2x"></i>
+
                             </div>
                             <p class="ml-2 res_description">{{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}</p>
 
