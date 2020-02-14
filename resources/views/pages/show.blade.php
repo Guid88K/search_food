@@ -79,9 +79,11 @@
         <div class="col-lg-10 mx-auto mt-3 ">
             <p class=" text-center mb-4 fontGreat font-weight-bold h2 ">
                 Інгредієнти:</p>
-            @foreach($food_ing as $i)
-                @if($loop->index%2 == 0)
-                    <div class="row p-0 m-0">
+            <div class="row p-0 m-0">
+                @foreach($food_ing as $i)
+
+                    @if($loop->index%2 == 0)
+
                         <div class="col-md-6">
 
 
@@ -91,12 +93,12 @@
 
 
                         </div>
-                    </div>
-                @endif
-            @endforeach
-            @foreach($food_ing as $i)
-                @if($loop->index%2 == 1)
-                    <div class="row p-0 m-0">
+
+                    @endif
+                @endforeach
+                @foreach($food_ing as $i)
+                    @if($loop->index%2 == 1)
+
                         <div class="col-md-6">
 
                             <ul>
@@ -105,9 +107,11 @@
 
 
                         </div>
-                    </div>
-                @endif
-            @endforeach
+
+                    @endif
+
+                @endforeach
+            </div>
             <hr>
         </div>
     </div>
