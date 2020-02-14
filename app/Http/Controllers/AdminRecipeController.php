@@ -30,7 +30,8 @@ class AdminRecipeController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        $ingredient = Indredient::all();
+        return view('admin.create', ['ingredient' => $ingredient]);
     }
 
     /**

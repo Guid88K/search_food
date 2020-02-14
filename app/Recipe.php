@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Recipe extends Model
 {
@@ -24,7 +25,8 @@ class Recipe extends Model
         return $this->hasMany('App\FoodRecipe');
     }
 
-    public function food_ing(){
+    public function food_ing()
+    {
         return $this->hasMany('App\FoodIng');
     }
 
