@@ -56,18 +56,25 @@
             <h1 class="text-md-center ml-lg-5 text-lg-left recipeName font-weight-bold mt-3">{{$recipe->recipe_name}}</h1>
             <hr>
         </div>
+    </div>
+<div class="row m-0 p-0">
+    <div class="col-lg-10 mx-auto mt-3">
+        <div class="mb-3 text-right">
+            <i class="fa fa-star  fa-2x"></i>
+            <i class="fa fa-star  fa-2x"></i>
+            <i class="fa fa-star  fa-2x"></i>
+            <i class="fa fa-star  fa-2x"></i>
+            <i class="fa fa-star  fa-2x"></i>
 
-        <div class="col-lg-10 mx-auto mt-3">
-            <div class="mb-3 text-right">
-                <i class="fa fa-star  fa-2x"></i>
-                <i class="fa fa-star  fa-2x"></i>
-                <i class="fa fa-star  fa-2x"></i>
-                <i class="fa fa-star  fa-2x"></i>
-                <i class="fa fa-star  fa-2x"></i>
-
-            </div>
-            <img class="img-fluid mx-auto" src="{{asset('upload/'.$recipe->recipe_image)}}">
         </div>
+
+    </div>
+</div>
+<div class="row m-0 p-0">
+    <div class="col-lg-10 mx-auto mt-3">
+        <img class="img-fluid mx-auto" src="{{asset('upload/'.$recipe->recipe_image)}}">
+    </div>
+</div>
 
         <div class="row m-0  p-0">
 
@@ -76,41 +83,48 @@
             </div>
 
         </div>
+    <div class="row m-0 p-0">
+
         <div class="col-lg-10 mx-auto mt-3 ">
             <p class=" text-center mb-4 fontGreat font-weight-bold h2 ">
                 Інгредієнти:</p>
+        </div>
+    </div>
+        <div class="row p-0 m-0">
             @foreach($food_ing as $i)
+
                 @if($loop->index%2 == 0)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6">
+
+                    <div class="col-md-4 mx-auto">
 
 
-                            <ul>
-                                <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
-                            </ul>
+                        <ul>
+                            <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
+                        </ul>
 
 
-                        </div>
                     </div>
+
                 @endif
             @endforeach
             @foreach($food_ing as $i)
                 @if($loop->index%2 == 1)
-                    <div class="row p-0 m-0">
-                        <div class="col-md-6">
 
-                            <ul>
-                                <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
-                            </ul>
+                    <div class="col-md-4 mx-auto">
+
+                        <ul>
+                            <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
+                        </ul>
 
 
-                        </div>
                     </div>
+
                 @endif
+
             @endforeach
-            <hr>
         </div>
-    </div>
+            <hr>
+
 
     <div class="container">
         <h2 class="text-center mb-4 fontGreat font-weight-bold ">Приготування</h2>
@@ -123,12 +137,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
-                        <p class="px-2 ">{{$fr->description}}</p>
+                    <div class="col-md-6 ">
+                        <p class="px-lg-2 ">{{$fr->description}}</p>
                     </div>
 
                     <div class="col-md-6 m-0  p-0">
-                        <img class="img-fluid" src="{{asset('upload/'.$fr->image)}}">
+                        <img class="img-fluid mb-lg-5" src="{{asset('upload/'.$fr->image)}}">
                     </div>
                 </div>
             </div>
@@ -159,41 +173,41 @@
     {{--    </div>--}}
 
 
-    <div class="row mt-3 m-0">
-        <div class="p-4 bg-dark text-white col-md-3">
-            <h2 class="mb-5">Pingendo</h2>
-            <p>A company for whatever you may need, from website prototyping to publishing</p>
-            <i class="mr-3 fa fa-twitter "></i>
-            <i class="mr-3 fa fa-facebook"></i>
-            <i class="mr-3 fa fa-google-plus"></i>
-            <i class="mr-3 fa fa-pinterest-square"></i>
+{{--    <div class="row mt-3 m-0">--}}
+{{--        <div class="p-4 bg-dark text-white col-md-3">--}}
+{{--            <h2 class="mb-5">Pingendo</h2>--}}
+{{--            <p>A company for whatever you may need, from website prototyping to publishing</p>--}}
+{{--            <i class="mr-3 fa fa-twitter "></i>--}}
+{{--            <i class="mr-3 fa fa-facebook"></i>--}}
+{{--            <i class="mr-3 fa fa-google-plus"></i>--}}
+{{--            <i class="mr-3 fa fa-pinterest-square"></i>--}}
 
-        </div>
-        <div class="p-4  bg-dark text-white col-md-3">
-            <h2 class="mb-5">Mapsite</h2>
-            <ul class="list-unstyled"><a href="#" class="text-white">Home</a> <br> <a href="#" class="text-white">About
-                    us</a> <br> <a href="#" class="text-white">Our services</a> <br> <a href="#"
-                                                                                        class="text-white">Stories</a>
-            </ul>
-        </div>
-        <div class="p-4 bg-dark text-white col-md-3">
-            <h2 class="mb-5">Contact</h2>
-            <p><a href="#" class="text-white">
-                    <i class="fa d-inline mr-3 text-muted fa-phone"></i>+246 - 542 550 5462</a></p>
-            <p><a href="#" class="text-white">
-                    <i class=" fa d-inline mr-3 text-muted fa-envelope-o"></i>info@pingendo.com</a></p>
-            <p><a href="#" class="text-white">
-                    <i class=" fa d-inline mr-3 fa-map-marker text-muted"></i>365 Park Street, NY</a></p>
-        </div>
-        <div class="p-4 bg-dark text-white col-md-3">
-            <h2 class="mb-5">Subscribe</h2>
-            <form>
-                <fieldset class="form-group"><label for="exampleInputEmail1">Get our newsletter</label> <input
-                        type="email" class="form-control " placeholder="Enter email"></fieldset>
-                <button type="submit" class="btn btn-outline-dark">Submit</button>
-            </form>
-        </div>
-    </div>
+{{--        </div>--}}
+{{--        <div class="p-4  bg-dark text-white col-md-3">--}}
+{{--            <h2 class="mb-5">Mapsite</h2>--}}
+{{--            <ul class="list-unstyled"><a href="#" class="text-white">Home</a> <br> <a href="#" class="text-white">About--}}
+{{--                    us</a> <br> <a href="#" class="text-white">Our services</a> <br> <a href="#"--}}
+{{--                                                                                        class="text-white">Stories</a>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--        <div class="p-4 bg-dark text-white col-md-3">--}}
+{{--            <h2 class="mb-5">Contact</h2>--}}
+{{--            <p><a href="#" class="text-white">--}}
+{{--                    <i class="fa d-inline mr-3 text-muted fa-phone"></i>+246 - 542 550 5462</a></p>--}}
+{{--            <p><a href="#" class="text-white">--}}
+{{--                    <i class=" fa d-inline mr-3 text-muted fa-envelope-o"></i>info@pingendo.com</a></p>--}}
+{{--            <p><a href="#" class="text-white">--}}
+{{--                    <i class=" fa d-inline mr-3 fa-map-marker text-muted"></i>365 Park Street, NY</a></p>--}}
+{{--        </div>--}}
+{{--        <div class="p-4 bg-dark text-white col-md-3">--}}
+{{--            <h2 class="mb-5">Subscribe</h2>--}}
+{{--            <form>--}}
+{{--                <fieldset class="form-group"><label for="exampleInputEmail1">Get our newsletter</label> <input--}}
+{{--                        type="email" class="form-control " placeholder="Enter email"></fieldset>--}}
+{{--                <button type="submit" class="btn btn-outline-dark">Submit</button>--}}
+{{--            </form>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
 </div>

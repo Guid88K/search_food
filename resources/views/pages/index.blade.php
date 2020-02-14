@@ -140,12 +140,12 @@
                         <div class="m-3 ">
                             <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
                             <hr class="hrr"/>
-                            <div class="mt-4 ml-5 text-right">
+                            <div class="mt-4 mb-2 ml-ld-5 text-lg-right">
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
-                                <i class="fa fa-star-half-empty fa-2x"></i>
-                                <i class="fa fa-star-o  fa-2x"></i>
+                                <i class="fa fa-star fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
 
                             </div>
 
@@ -158,18 +158,18 @@
                 </div>
             @endif
             @if($loop->index%2==1)
-                <div class="row d-flex p-0">
+                <div class="row d-flex p-0 m-0">
 
                     <div class="col-lg-6 col-md-12 col-sm-12 order-lg-1 order-md-2 order-sm-2 order-xs-2 order-2">
                         <div class="m-3 ">
                             <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
                             <hr class="hrr"/>
-                            <div class="mt-4 mr-5">
+                            <div class="mt-4 mb-2 mr-lg-5 text-lg-left">
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
-                                <i class="fa fa-star-half-empty  fa-2x"></i>
-                                <i class="fa fa-star-o  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
+                                <i class="fa fa-star  fa-2x"></i>
 
                             </div>
                             <p class="ml-2 res_description">{{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}</p>
@@ -235,40 +235,40 @@
             </nav>
         </div>
     </div>
-    <div class="row mt-3 m-0" style="background-color: #202326">
-        <div class="p-4 bg-dark text-white col-md-3">
-            <h2 class="mb-5">Pingendo</h2>
-            <p>A company for whatever you may need, from website prototyping to publishing</p>
-            <i class="mr-3 fa fa-twitter "></i>
-            <i class="mr-3 fa fa-facebook"></i>
-            <i class="mr-3 fa fa-google-plus"></i>
-            <i class="mr-3 fa fa-pinterest-square"></i>
+{{--    <div class="row mt-3 m-0" style="background-color: #202326">--}}
+{{--        <div class="p-4 bg-dark text-white col-md-3">--}}
+{{--            <h2 class="mb-5">Pingendo</h2>--}}
+{{--            <p>A company for whatever you may need, from website prototyping to publishing</p>--}}
+{{--            <i class="mr-3 fa fa-twitter "></i>--}}
+{{--            <i class="mr-3 fa fa-facebook"></i>--}}
+{{--            <i class="mr-3 fa fa-google-plus"></i>--}}
+{{--            <i class="mr-3 fa fa-pinterest-square"></i>--}}
 
-        </div>
-        <div class="p-4  bg-dark text-white col-md-3">
-            <h2 class="mb-5">Mapsite</h2>
-            <ul class="list-unstyled"><a href="#" class="text-white">Home</a> <br> <a href="#" class="text-white">About
-                    us</a> <br> <a href="#" class="text-white">Our services</a> <br> <a href="#" class="text-white">Stories</a>
-            </ul>
-        </div>
-        <div class="p-4 bg-dark text-white col-md-3">
-            <h2 class="mb-5">Contact</h2>
-            <p><a href="#" class="text-white">
-                    <i class="fa d-inline mr-3 text-muted fa-phone"></i>+246 - 542 550 5462</a></p>
-            <p><a href="#" class="text-white">
-                    <i class=" fa d-inline mr-3 text-muted fa-envelope-o"></i>info@pingendo.com</a></p>
-            <p><a href="#" class="text-white">
-                    <i class=" fa d-inline mr-3 fa-map-marker text-muted"></i>365 Park Street, NY</a></p>
-        </div>
-        <div class="p-4 bg-dark text-white col-md-3">
-            <h2 class="mb-5">Subscribe</h2>
-            <form>
-                <fieldset class="form-group"><label for="exampleInputEmail1">Get our newsletter</label> <input
-                        type="email" class="form-control " placeholder="Enter email"></fieldset>
-                <button type="submit" class="btn btn-outline-dark">Submit</button>
-            </form>
-        </div>
-    </div>
+{{--        </div>--}}
+{{--        <div class="p-4  bg-dark text-white col-md-3">--}}
+{{--            <h2 class="mb-5">Mapsite</h2>--}}
+{{--            <ul class="list-unstyled"><a href="#" class="text-white">Home</a> <br> <a href="#" class="text-white">About--}}
+{{--                    us</a> <br> <a href="#" class="text-white">Our services</a> <br> <a href="#" class="text-white">Stories</a>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--        <div class="p-4 bg-dark text-white col-md-3">--}}
+{{--            <h2 class="mb-5">Contact</h2>--}}
+{{--            <p><a href="#" class="text-white">--}}
+{{--                    <i class="fa d-inline mr-3 text-muted fa-phone"></i>+246 - 542 550 5462</a></p>--}}
+{{--            <p><a href="#" class="text-white">--}}
+{{--                    <i class=" fa d-inline mr-3 text-muted fa-envelope-o"></i>info@pingendo.com</a></p>--}}
+{{--            <p><a href="#" class="text-white">--}}
+{{--                    <i class=" fa d-inline mr-3 fa-map-marker text-muted"></i>365 Park Street, NY</a></p>--}}
+{{--        </div>--}}
+{{--        <div class="p-4 bg-dark text-white col-md-3">--}}
+{{--            <h2 class="mb-5">Subscribe</h2>--}}
+{{--            <form>--}}
+{{--                <fieldset class="form-group"><label for="exampleInputEmail1">Get our newsletter</label> <input--}}
+{{--                        type="email" class="form-control " placeholder="Enter email"></fieldset>--}}
+{{--                <button type="submit" class="btn btn-outline-dark">Submit</button>--}}
+{{--            </form>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
 </div>
