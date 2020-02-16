@@ -13,7 +13,7 @@
 <body>
 <div class="container-fluid  m-0 p-0">
     <div id="ll">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-lg-3 ">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,29 +23,29 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link ml-5 mr-4 " href="{{url('/recipe')}}">Всі<span
+                        <a class="nav-link ml-lg-5 mr-xl-4 mr-lg-2 " href="{{url('/recipe')}}">Всі<span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_first')}}">Перші страви</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_first')}}">Перші страви</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_second')}}">Другі страви</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_second')}}">Другі страви</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_salad')}}">Салати</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_salad')}}">Салати</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_snack')}}">Закуска</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_snack')}}">Закуска</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_baking')}}">Випічка</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_baking')}}">Випічка</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_dessert')}}">Десерти</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_dessert')}}">Десерти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_drinks')}}">Напої</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_drinks')}}">Напої</a>
                     </li>
                 </ul>
             </div>
@@ -53,7 +53,7 @@
     </div>
     <div class="row  p-0 m-0">
         <div class="col-md-12">
-            <h1 class="text-md-center ml-lg-5 text-lg-left recipeName font-weight-bold mt-3">{{$recipe->recipe_name}}</h1>
+            <h1 class="text-md-center ml-lg-5 text-center  text-lg-left recipeName font-weight-bold mt-lg-3 mt-md-4">{{$recipe->recipe_name}}</h1>
             <hr>
         </div>
     </div>
@@ -90,15 +90,20 @@
                 Інгредієнти:</p>
         </div>
     </div>
-        <div class="row p-0 m-0">
+    <div class="container">
+        <div class="row p-0 m-0" >
+
+
+
+
             @foreach($food_ing as $i)
 
                 @if($loop->index%2 == 0)
 
-                    <div class="col-md-4 mx-auto">
+                    <div class="col-md-6 " >
 
 
-                        <ul>
+                        <ul class="textCenter">
                             <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
                         </ul>
 
@@ -110,10 +115,10 @@
             @foreach($food_ing as $i)
                 @if($loop->index%2 == 1)
 
-                    <div class="col-md-4 mx-auto">
+                    <div class="col-md-6 ">
 
-                        <ul>
-                            <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
+                        <ul class="textCenter">
+                            <li >{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
                         </ul>
 
 
@@ -122,7 +127,9 @@
                 @endif
 
             @endforeach
-        </div>
+
+
+        </div>  </div>
             <hr>
 
 
