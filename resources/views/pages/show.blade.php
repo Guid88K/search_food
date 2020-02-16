@@ -90,39 +90,50 @@
                 Інгредієнти:</p>
         </div>
     </div>
-        <div class="row p-0 m-0">
-            @foreach($food_ing as $i)
+    <div class="row p-0 m-0 ">
+        <div class="container">
 
-                @if($loop->index%2 == 0)
-
-                    <div class="col-md-4 mx-auto">
+<div class="row">
 
 
-                        <ul>
-                            <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
-                        </ul>
+        @foreach($food_ing as $i)
+
+            @if($loop->index%2 == 0)
+
+                <div class="col-md-6 ">
 
 
-                    </div>
-
-                @endif
-            @endforeach
-            @foreach($food_ing as $i)
-                @if($loop->index%2 == 1)
-
-                    <div class="col-md-4 mx-auto">
-
-                        <ul>
-                            <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
-                        </ul>
+                    <ul>
+                        <li>
+                            {{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}
+                        </li>
+                    </ul>
 
 
-                    </div>
+                </div>
 
-                @endif
+            @endif
+        @endforeach
+        @foreach($food_ing as $i)
+            @if($loop->index%2 == 1)
 
-            @endforeach
+                <div class="col-md-6 ">
+
+                    <ul >
+                        <li>
+                            {{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}
+                        </li>
+                    </ul>
+
+
+                </div>
+
+            @endif
+
+        @endforeach
+</div>
         </div>
+    </div>
             <hr>
 
 
