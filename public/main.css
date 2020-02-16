@@ -46,6 +46,9 @@ body, html , .container-fluid{
 }
 
 
+.ul li{
+float: none;
+}
 .recipeName{
     font-family: 'Pacifico', cursive;
     font-size: 55px;
@@ -74,9 +77,20 @@ color: black;
         font-family:'Roboto Condensed', sans-serif;
 
     }
+    .recipeName{
+        margin-top: 70px;
+        font-size: 30px;
+    }
 
+    .textCenter {
+        width: 100% !important;
+    }
 }
 
+.textCenter {
+    width: 67%;
+    margin: auto;
+}
 
 /* .navbar-nav > li > a:hover, .navbar-item > li > a:focus {*/
 /*    background-color: black!important;*/
