@@ -1,19 +1,19 @@
 body, html , .container-fluid{
     height: 100%;
 }
-.bg {
-    /* The image used */
-    background-image: url('image/img.jpg');
+/*.bg {*/
+/*    !* The image used *!*/
+/*    background-image: url('image/img.jpg');*/
 
-    /* Half height */
-    height: 77%;
+/*    !* Half height *!*/
+/*    height: 77%;*/
 
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/*    !* Center and scale the image nicely *!*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
 
-}
+/*}*/
 
 
 
@@ -92,6 +92,31 @@ color: black;
     margin: auto;
 }
 
+.textName:hover{
+    color: black;
+}
+
+.container-fluidd{
+    height: 80%;
+    display:table;
+    width: 100%;
+    padding: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image:  url('image/img.jpg');
+}
+
+.row-fluid {
+    height:100%;
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.centering {
+    float:none;
+    margin:0 auto;
+}
 /* .navbar-nav > li > a:hover, .navbar-item > li > a:focus {*/
 /*    background-color: black!important;*/
 /*    color: white!important;*/

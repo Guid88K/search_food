@@ -30,7 +30,7 @@
                         <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_first')}}">Перші страви</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_second')}}">Другі страви</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_second')}}">Другі страви</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_salad')}}">Салати</a>

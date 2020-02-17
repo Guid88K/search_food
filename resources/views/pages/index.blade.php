@@ -13,30 +13,46 @@
 </head>
 <body>
 <div class="container-fluid m-0 p-0 ">
-    <div class="bg">
 
-        <table style="max-height: 20%; width: 100%; min-height: 95%;">
-            <tbody>
-            <tr>
-                <td class="align-middle">
-                    <div>
-                        <h2 class="align-middle EnjCook font-weight-bold text-white text-center ">Насолоджуйтесь
-                            приготуванням їжі</h2>
-                        {{--                        <p class="align-middle mt-3 recipes font-weight-bold  text-white text-center ">Понад--}}
-                        {{--                            {{$count->count()}} смачних рецептів.</p>--}}
-                    </div>
-                    <div class="text-center mt-5">
-                        <button type="button"
-                                class=" btn btn-success mb-5 bay-diagnosis-btn col-md-2 col-7  " data-toggle="modal"
-                                data-target="#recipe_search">Підібрати рецепт
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-
-        </table>
+    <div class="container-fluidd">
+        <div class="row-fluid">
+            <div class="centering text-center">
+                <h2 class="align-middle EnjCook font-weight-bold text-white text-center ">Насолоджуйтесь
+                    приготуванням їжі</h2>
+                <button type="button"
+                        class=" btn btn-success mt-5 mb-5 bay-diagnosis-btn col-md-2 col-7  " data-toggle="modal"
+                        data-target="#recipe_search">Підібрати рецепт
+                </button>
+            </div>
+        </div>
     </div>
+
+{{--    <div class="bg">--}}
+
+{{--        <table style="max-height: 20%; width: 100%; min-height: 95%;">--}}
+{{--            <tbody>--}}
+{{--            <tr>--}}
+{{--                <td class="align-middle">--}}
+{{--                    <div>--}}
+
+
+{{--                        <h2 class="align-middle EnjCook font-weight-bold text-white text-center ">Насолоджуйтесь--}}
+{{--                            приготуванням їжі</h2>--}}
+{{--                        --}}{{--                        <p class="align-middle mt-3 recipes font-weight-bold  text-white text-center ">Понад--}}
+{{--                        --}}{{--                            {{$count->count()}} смачних рецептів.</p>--}}
+{{--                    </div>--}}
+{{--                    <div class="text-center mt-5">--}}
+{{--                        <button type="button"--}}
+{{--                                class=" btn btn-success mb-5 bay-diagnosis-btn col-md-2 col-7  " data-toggle="modal"--}}
+{{--                                data-target="#recipe_search">Підібрати рецепт--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
+{{--                </td>--}}
+{{--            </tr>--}}
+{{--            </tbody>--}}
+
+{{--        </table>--}}
+{{--    </div>--}}
 
     <div class="modal fade" id="recipe_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
@@ -81,9 +97,11 @@
         </div>
     </div>
 
+
+
     <div id="ll">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
-
+            <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -92,28 +110,28 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link ml-5 mr-4 " href="{{url('/recipe')}}">Всі<span class="sr-only">(current)</span></a>
+                        <a class="nav-link mr-xl-4 mr-lg-2 " href="{{url('/recipe')}}">Всі<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_first')}}">Перші страви</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_first')}}">Перші страви</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_second')}}">Другі страви</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_second')}}">Другі страви</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_salad')}}">Салати</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_salad')}}">Салати</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_snack')}}">Закуска</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_snack')}}">Закуска</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_baking')}}">Випічка</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_baking')}}">Випічка</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_dessert')}}">Десерти</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_dessert')}}">Десерти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-4 " href="{{url('/search_drinks')}}">Напої</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_drinks')}}">Напої</a>
                     </li>
                 </ul>
             </div>
@@ -138,10 +156,10 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12  order-lg-2 order-md-2 order-sm-2 order-xs-2 order-2">
                         <div class="m-3 ">
-                            <a href="{{route('recipe.show',  $r->id)}}">
+                            <a class="textName" href="{{route('recipe.show',  $r->id)}}">
                             <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
                             </a>
-                            <hr class="hrr"/>
+
                             <div class="mt-4 mb-2 ml-ld-5 text-lg-right">
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
@@ -164,10 +182,10 @@
 
                     <div class="col-lg-6 col-md-12 col-sm-12 order-lg-1 order-md-2 order-sm-2 order-xs-2 order-2">
                         <div class="m-3 ">
-                            <a href="{{route('recipe.show',  $r->id)}}">
+                            <a class="textName" href="{{route('recipe.show',  $r->id)}}">
                             <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
                             </a>
-                            <hr class="hrr"/>
+
                             <div class="mt-4 mb-2 mr-lg-5 text-lg-left">
                                 <i class="fa fa-star  fa-2x"></i>
                                 <i class="fa fa-star  fa-2x"></i>
