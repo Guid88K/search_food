@@ -507,11 +507,11 @@ MAIN CONTENT LAYOUT
                 <ul class="nav-main">
                     <li>
                         <a href="{{url('/recipe')}}"><i class="si si-cup"></i><span
-                                class="sidebar-mini-hide">Web site</span></a>
+                                class="sidebar-mini-hide">Сайт</span></a>
                     </li>
                     <li>
                         <a href="{{url('/admin/recipe/create')}}"><i class="si si-plus"></i><span
-                                class="sidebar-mini-hide">Add recipe</span></a>
+                                class="sidebar-mini-hide">Добавити рецепт</span></a>
                     </li>
                 </ul>
             </div>

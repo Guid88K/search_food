@@ -507,11 +507,11 @@ MAIN CONTENT LAYOUT
                 <ul class="nav-main">
                     <li>
                         <a href="{{url('/recipe')}}"><i class="si si-cup"></i><span
-                                class="sidebar-mini-hide">Web site</span></a>
+                                class="sidebar-mini-hide">Сайт</span></a>
                     </li>
                     <li>
                         <a href="{{url('/admin/recipe/create')}}"><i class="si si-plus"></i><span
-                                class="sidebar-mini-hide">Add recipe</span></a>
+                                class="sidebar-mini-hide">Добавити рецепт</span></a>
                     </li>
                 </ul>
             </div>
@@ -830,7 +830,7 @@ MAIN CONTENT LAYOUT
                             <p class="mt-5">
                                 <i class="si si-book-open fa-3x text-white-op"></i>
                             </p>
-                            <p class="font-w600 text-white">Web sites</p>
+                            <p class="font-w600 text-white">Сайт</p>
                         </div>
                     </a>
                 </div>
@@ -842,7 +842,7 @@ MAIN CONTENT LAYOUT
                             <p class="mt-5">
                                 <i class="si si-plus fa-3x text-white-op"></i>
                             </p>
-                            <p class="font-w600 text-white">New recipe</p>
+                            <p class="font-w600 text-white">Новий рецепт</p>
                         </div>
                         {{--                        </a>--}}
                     </a>
@@ -855,7 +855,7 @@ MAIN CONTENT LAYOUT
                             <p class="mt-5">
                                 <i class="si si-bubbles fa-3x text-white-op"></i>
                             </p>
-                            <p class="font-w600 text-white">Comments</p>
+                            <p class="font-w600 text-white">Коментарі</p>
                         </div>
                     </a>
                 </div>
@@ -865,7 +865,7 @@ MAIN CONTENT LAYOUT
                             <p class="mt-5">
                                 <i class="si si-magnifier fa-3x text-white-op"></i>
                             </p>
-                            <p class="font-w600 text-white">Search</p>
+                            <p class="font-w600 text-white">Пошук</p>
                         </div>
                     </a>
                 </div>
@@ -875,7 +875,7 @@ MAIN CONTENT LAYOUT
                             <p class="mt-5">
                                 <i class="si si-bar-chart fa-3x text-white-op"></i>
                             </p>
-                            <p class="font-w600 text-white">Statistics</p>
+                            <p class="font-w600 text-white">Статистика</p>
                         </div>
                     </a>
                 </div>
@@ -885,7 +885,7 @@ MAIN CONTENT LAYOUT
                             <p class="mt-5">
                                 <i class="si si-settings fa-3x text-white-op"></i>
                             </p>
-                            <p class="font-w600 text-white">Settings</p>
+                            <p class="font-w600 text-white">Налаштувння</p>
                         </div>
                     </a>
                 </div>
