@@ -138,7 +138,9 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12  order-lg-2 order-md-2 order-sm-2 order-xs-2 order-2">
                         <div class="m-3 ">
+                            <a href="{{route('recipe.show',  $r->id)}}">
                             <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
+                            </a>
                             <hr class="hrr"/>
                             <div class="mt-4 mb-2 ml-ld-5 text-lg-right">
                                 <i class="fa fa-star  fa-2x"></i>
@@ -162,7 +164,9 @@
 
                     <div class="col-lg-6 col-md-12 col-sm-12 order-lg-1 order-md-2 order-sm-2 order-xs-2 order-2">
                         <div class="m-3 ">
+                            <a href="{{route('recipe.show',  $r->id)}}">
                             <h3 class="text-center recipeName">{{$r->recipe_name}}</h3>
+                            </a>
                             <hr class="hrr"/>
                             <div class="mt-4 mb-2 mr-lg-5 text-lg-left">
                                 <i class="fa fa-star  fa-2x"></i>
