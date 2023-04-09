@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\FoodIng;
-use App\FoodRecipe;
-use App\Indredient;
+use App\Comments;
+use App\Ingredient;
 use App\Recipe;
-use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class RecipeController extends Controller
 {
@@ -17,34 +17,17 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipe = Recipe::orderBy('updated_at','desc')->paginate(10);
-        $count = Recipe::all();
-        $ingredient = Indredient::all();
+        $user = User::find(Auth::id()) ?? null;
+        $recipe = Recipe::where('is_published', '=', true)
+            ->orderBy('updated_at', 'desc')
+            ->paginate(10);
+
         return view('pages.index', [
             'recipe' => $recipe,
-            'ingredient' => $ingredient,
-            'count' => $count]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+            'ingredient' => Ingredient::all(),
+            'count' => Recipe::where('is_published', '=', true)->get(),
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -56,47 +39,17 @@ class RecipeController extends Controller
     public function show($id)
     {
         $recipe = Recipe::find($id);
-        $food_ing = $recipe->food_ing;
-        $food_recipe = $recipe->food_recipe;
-        return view('pages.show', [
+        $comments = Comments::where('recipe_id', $id)->get();
+
+        return view(
+            'pages.show',
+            [
             'recipe' => $recipe,
-            'food_ing' => $food_ing,
-            'food_recipe' => $food_recipe
+            'food_ing' => $recipe->food_ing,
+            'food_recipe' => $recipe->food_recipe,
+            'comments' => $comments,
         ],
-            compact('recipe'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function destroy($id)
-    {
-
+            compact('recipe')
+        );
     }
 }

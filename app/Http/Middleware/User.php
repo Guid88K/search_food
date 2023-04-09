@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Admin
+class User
 {
     /**
      * Handle an incoming request.
@@ -19,6 +19,7 @@ class Admin
         $auth = auth()->user() ? auth()->user()->role : false;
         switch ($auth) {
             case 'admin':
+            case 'member':
                 return $next($request);
 
             default:

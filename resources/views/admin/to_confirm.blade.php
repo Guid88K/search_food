@@ -43,13 +43,13 @@
 
         <div class="content">
             <div class="row">
-                @foreach($recipe as $s)
+                @foreach($pre_confirm as $s)
                     <div class="col-md-6 col-xl-4 invisible" data-toggle="appear">
 
                         <div class="block block-rounded">
                             <div class="block-content p-0 overflow-hidden">
                                 <a class="img-link" href="
-                                    {{route('recipe.show',$s->id )}}
+                                    {{route('pre_confirm_recipe.show',$s->id )}}
                                     ">
                                     <img class="img-fluid rounded-top" src="{{ asset('upload/'.$s->recipe_image)}}"
                                          alt="">
@@ -58,22 +58,22 @@
                             <div class="block-content border-bottom">
                                 <h4 class="font-size-h5 mb-10">{{$s->recipe_name}}</h4>
                                 <p class="text-muted">
-                                    @if(!$s->is_published) <i class="fa fa-map-pin mr-5 text-warning"> На підтверджені</i> @endif
-                                    @if($s->is_published) <i class="fa fa-map-pin mr-5 text-success"> Підтвережно </i> @endif
+                                    <i class="fa fa-map-pin mr-5"></i>
                                 </p>
                             </div>
                             <div class="block-content"></div>
                             <div class="block-content block-content-full">
                                 <div class="row">
                                     <div class="col-6">
-                                        <a href="{{ route('recipe.edit', $s->id)}}">
-                                            <button type="button" class="btn btn-alt-secondary text-center">
-                                                Редагувати
+                                        <form action="{{url('admin/confirm/'.$s->id)}}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-alt-secondary text-center">
+                                                Підтвердити
                                             </button>
-                                        </a>
+                                        </form>
                                     </div>
                                     <div class="col-6">
-                                        <form action="{{route('recipe.destroy',$s->id)}}" method="post">
+                                        <form action="{{url('admin/confirm/'.$s->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-alt-primary text-center ">

@@ -10,7 +10,7 @@
         </div>
         <div class="block block-rounded block-fx-shadow">
             <div class="block-content">
-                <form method="post" action="{{ route('recipe.store') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('pre_confirm_recipe.store') }}" enctype="multipart/form-data">
                     <!-- Photos -->
                     <h2 class="content-heading text-black">Фото</h2>
                     <div class="row items-push">
@@ -208,7 +208,7 @@
 
     <!-- Page JS Code -->
     <script src="{{asset('assets/js/pages/be_pages_dashboard.min.js')}}"></script>
-    <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             var max_fields = 100;
@@ -318,4 +318,5 @@
 
         };
     </script>
+
 @endsection

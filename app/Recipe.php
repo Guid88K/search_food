@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Recipe extends Model
 {
@@ -12,23 +13,26 @@ class Recipe extends Model
         'recipe_image',
         'recipe_description',
         'kind_of_recipe',
-        'ing_for_filter'
+        'ing_for_filter',
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo('App\User');
     }
 
-    public function food_recipe()
+    public function food_recipe(): HasMany
     {
         return $this->hasMany('App\FoodRecipe');
     }
 
-    public function food_ing()
+    public function food_ing(): HasMany
     {
         return $this->hasMany('App\FoodIng');
     }
 
-
+    public function comment()
+    {
+        return $this->hasMany('App\Comments');
+    }
 }

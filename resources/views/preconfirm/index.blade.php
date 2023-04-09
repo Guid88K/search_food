@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-6 col-md-4 col-xl-2">
-                <a class="block text-center" href="{{url('/admin/recipe/create')}} ">
+                <a class="block text-center" href="{{url('/user/pre_confirm_recipe/create')}} ">
                     <div class="block-content bg-gd-primary">
                         <p class="mt-5">
                             <i class="si si-plus fa-3x text-white-op"></i>
@@ -26,19 +26,6 @@
                     </div>
                 </a>
             </div>
-
-            <div class="col-6 col-md-4 col-xl-2">
-                <a class="block text-center" href="{{url('/admin/confirm')}} ">
-                    <div class="block-content ribbon ribbon-bookmark ribbon-crystal ribbon-left bg-gd-primary">
-                        <div class="ribbon-box">{{$pre_confirm->count()}}</div>
-                        <p class="mt-5">
-                            <i class="si si-check fa-3x text-white-op"></i>
-                        </p>
-                        <p class="font-w600 text-white">На підтвердження</p>
-                    </div>
-                </a>
-            </div>
-
         </div>
 
         <div class="content">
@@ -49,7 +36,7 @@
                         <div class="block block-rounded">
                             <div class="block-content p-0 overflow-hidden">
                                 <a class="img-link" href="
-                                    {{route('recipe.show',$s->id )}}
+                                    {{route('pre_confirm_recipe.show',$s->id )}}
                                     ">
                                     <img class="img-fluid rounded-top" src="{{ asset('upload/'.$s->recipe_image)}}"
                                          alt="">
@@ -66,14 +53,7 @@
                             <div class="block-content block-content-full">
                                 <div class="row">
                                     <div class="col-6">
-                                        <a href="{{ route('recipe.edit', $s->id)}}">
-                                            <button type="button" class="btn btn-alt-secondary text-center">
-                                                Редагувати
-                                            </button>
-                                        </a>
-                                    </div>
-                                    <div class="col-6">
-                                        <form action="{{route('recipe.destroy',$s->id)}}" method="post">
+                                        <form action="{{route('pre_confirm_recipe.destroy',$s->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-alt-primary text-center ">

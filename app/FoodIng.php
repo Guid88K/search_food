@@ -9,7 +9,7 @@ class FoodIng extends Model
     protected $fillable = [
         'ingredient_name',
         'ingredient_count',
-        'ingredient_kind'
+        'ingredient_kind',
     ];
 
     public function recipe()

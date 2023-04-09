@@ -57,50 +57,44 @@
             <hr>
         </div>
     </div>
-<div class="row m-0 p-0">
-    <div class="col-lg-10 mx-auto mt-3">
-        <div class="mb-3 text-right">
-            <i class="fa fa-star  fa-2x"></i>
-            <i class="fa fa-star  fa-2x"></i>
-            <i class="fa fa-star  fa-2x"></i>
-            <i class="fa fa-star  fa-2x"></i>
-            <i class="fa fa-star  fa-2x"></i>
+    <div class="row m-0 p-0">
+        <div class="col-lg-10 mx-auto mt-3">
+            <div class="mb-3 text-right">
+                <p class="font-italic">Створено: {{\App\User::find($recipe->user_id)->name}}</p>
 
-        </div>
-
-    </div>
-</div>
-<div class="row m-0 p-0">
-    <div class="col-lg-10 mx-auto mt-3">
-        <img class="img-fluid mx-auto" src="{{asset('upload/'.$recipe->recipe_image)}}">
-    </div>
-</div>
-
-        <div class="row m-0  p-0">
-
-            <div class="col-md-9 mx-auto mt-4 ">
-                <p class="">{{$recipe->recipe_description}}</p>
             </div>
 
         </div>
+    </div>
+    <div class="row m-0 p-0">
+        <div class="col-lg-10 mx-auto mt-3">
+            <img class="img-fluid mx-auto" src="{{asset('upload/'.$recipe->recipe_image)}}">
+        </div>
+    </div>
+
+    <div class="row m-0  p-0">
+
+        <div class="col-md-9 mx-auto mt-4 ">
+            <p class="">{{$recipe->recipe_description}}</p>
+        </div>
+
+    </div>
     <div class="row m-0 p-0">
 
         <div class="col-lg-10 mx-auto mt-3 ">
             <p class=" text-center mb-4 fontGreat font-weight-bold h2 ">
-                Інгредієнти:</p>
+                Інгредієнти</p>
         </div>
     </div>
     <div class="container">
-        <div class="row p-0 m-0" >
-
-
+        <div class="row p-0 m-0">
 
 
             @foreach($food_ing as $i)
 
                 @if($loop->index%2 == 0)
 
-                    <div class="col-md-6 " >
+                    <div class="col-md-6 ">
 
 
                         <ul class="textCenter">
@@ -118,7 +112,7 @@
                     <div class="col-md-6 ">
 
                         <ul class="textCenter">
-                            <li >{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
+                            <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
                         </ul>
 
 
@@ -129,8 +123,9 @@
             @endforeach
 
 
-        </div>  </div>
-            <hr>
+        </div>
+    </div>
+    <hr>
 
 
     <div class="container">
@@ -155,68 +150,66 @@
             </div>
             <hr class="my-4 ">
         @endforeach
+
+        <div class="d-flex justify-content-center ">
+            <div class="row bootstrap">
+                <div class="col-md-12 col-sm-12">
+                    <div class="comment-wrapper">
+                        <div class="panel panel-info">
+                            <h2 class="text-center mb-4 fontGreat font-weight-bold">
+                                Коментарі рецепту:
+                            </h2>
+                            <div class="panel-body">
+                                @if(isset(Auth::user()->id))
+                                    <form action="{{ url('comment', $recipe->id)}}"
+                                          enctype="multipart/form-data" method="post">
+                                        @csrf
+                                        <textarea class="form-control" name="text" placeholder="Напишіть коментар..." rows="3"></textarea>
+                                        <br>
+                                        <button type="submit" class="btn btn-dark pull-right">Коментувати</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+
+                                <hr>
+                                @endif
+                                <div class="row m-1 pl-md-1">
+                                    @foreach($comments as $c)
+                                        <div class="col-md-12">
+
+                                        <span class="text-muted pull-right">
+                                    <small class="text-muted">{{$c->created_at}}</small>
+                                        </span>
+                                            <strong class="text-dark">{{\App\User::find($c->user_id)->name}}</strong>
+                                            <p>
+                                                {{$c->text}}
+                                            </p>
+                                            @if(isset(Auth::user()->id) && ('admin' === Auth::user()->role || $c->user_id === Auth::user()->id))
+                                                <a
+                                                    onclick="event.preventDefault();
+                                                     document.getElementById('delete_comment').submit();">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                         fill="currentColor"
+                                                         class="bi bi-trash3-fill  pull-right" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                                                    </svg>
+                                                </a>
+                                            @endif
+                                            <form id="delete_comment" action="{{route('comment.destroy' , $c->id)}}"
+                                                  method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    {{--    <div class="row mt-5 m-0">--}}
-    {{--        <div class="col-lg-10 mx-auto">--}}
-    {{--            <nav aria-label="Page navigation example">--}}
-    {{--                <ul class="pagination  justify-content-center">--}}
-    {{--                    <li class="page-item ">--}}
-    {{--                        <a class="page-link rounded-circle text-white bg-dark" href="#" aria-label="Previous">--}}
-    {{--                            <span aria-hidden="true">&laquo;</span>--}}
-    {{--                        </a>--}}
-    {{--                    </li>--}}
-    {{--                    <li class="  page-item"><a class="page-link rounded-circle  text-white bg-dark" href="#">1</a></li>--}}
-    {{--                    <li class="page-item"><a class="page-link rounded-circle  text-white bg-dark" href="#">2</a></li>--}}
-    {{--                    <li class="page-item"><a class="page-link rounded-circle  text-white bg-dark" href="#">3</a></li>--}}
-    {{--                    <li class="page-item">--}}
-    {{--                        <a class="page-link rounded-circle text-white bg-dark" href="#" aria-label="Next">--}}
-    {{--                            <span aria-hidden="true">&raquo;</span>--}}
-    {{--                        </a>--}}
-    {{--                    </li>--}}
-    {{--                </ul>--}}
-    {{--            </nav>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-
-
-{{--    <div class="row mt-3 m-0">--}}
-{{--        <div class="p-4 bg-dark text-white col-md-3">--}}
-{{--            <h2 class="mb-5">Pingendo</h2>--}}
-{{--            <p>A company for whatever you may need, from website prototyping to publishing</p>--}}
-{{--            <i class="mr-3 fa fa-twitter "></i>--}}
-{{--            <i class="mr-3 fa fa-facebook"></i>--}}
-{{--            <i class="mr-3 fa fa-google-plus"></i>--}}
-{{--            <i class="mr-3 fa fa-pinterest-square"></i>--}}
-
-{{--        </div>--}}
-{{--        <div class="p-4  bg-dark text-white col-md-3">--}}
-{{--            <h2 class="mb-5">Mapsite</h2>--}}
-{{--            <ul class="list-unstyled"><a href="#" class="text-white">Home</a> <br> <a href="#" class="text-white">About--}}
-{{--                    us</a> <br> <a href="#" class="text-white">Our services</a> <br> <a href="#"--}}
-{{--                                                                                        class="text-white">Stories</a>--}}
-{{--            </ul>--}}
-{{--        </div>--}}
-{{--        <div class="p-4 bg-dark text-white col-md-3">--}}
-{{--            <h2 class="mb-5">Contact</h2>--}}
-{{--            <p><a href="#" class="text-white">--}}
-{{--                    <i class="fa d-inline mr-3 text-muted fa-phone"></i>+246 - 542 550 5462</a></p>--}}
-{{--            <p><a href="#" class="text-white">--}}
-{{--                    <i class=" fa d-inline mr-3 text-muted fa-envelope-o"></i>info@pingendo.com</a></p>--}}
-{{--            <p><a href="#" class="text-white">--}}
-{{--                    <i class=" fa d-inline mr-3 fa-map-marker text-muted"></i>365 Park Street, NY</a></p>--}}
-{{--        </div>--}}
-{{--        <div class="p-4 bg-dark text-white col-md-3">--}}
-{{--            <h2 class="mb-5">Subscribe</h2>--}}
-{{--            <form>--}}
-{{--                <fieldset class="form-group"><label for="exampleInputEmail1">Get our newsletter</label> <input--}}
-{{--                        type="email" class="form-control " placeholder="Enter email"></fieldset>--}}
-{{--                <button type="submit" class="btn btn-outline-dark">Submit</button>--}}
-{{--            </form>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-
 </div>
 
 <script

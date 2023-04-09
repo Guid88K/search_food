@@ -19,8 +19,9 @@ class CreateRecipesTable extends Migration
             $table->integer('user_id');
             $table->string('kind_of_recipe');
             $table->string('recipe_name');
-            $table->text('recipe_description');
+            $table->text('recipe_description')->nullable();;
             $table->string('recipe_image');
+            $table->boolean('is_published')->default(false);
             $table->string('ing_for_filter');
             $table->timestamps();
         });

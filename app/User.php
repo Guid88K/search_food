@@ -2,10 +2,8 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\App;
 
 class User extends Authenticatable
 {
@@ -38,13 +36,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function isAdmin(){
-
+    public function isAdmin()
+    {
         return $this->is_admin;
     }
 
-    public function recipe(){
-
+    public function recipe()
+    {
         return $this->hasMany('App\Recipe');
+    }
+
+    public function comment()
+    {
+        return $this->hasMany('App\Comments');
     }
 }
