@@ -11,9 +11,59 @@
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
+<style>
+    .navbar-custom {
+        height: 45px; /* Задайте желаемую высоту здесь */
+    }
+</style>
 <body>
 <div class="container-fluid m-0 p-0 ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                Search food
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
+
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Вхід</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">Реєстрація</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                        @if(isset($user) && 'admin' === $user->role)
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{url('/admin/recipe')}}">Панель керування</a>
+                            </li>
+                        @endif
+                        @if(isset($user) && 'member' === $user->role)
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{url('/user/pre_confirm_recipe')}}">Панель
+                                    керування</a>
+                            </li>
+                            @endif
+                        </li>
+                    @endguest
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container-fluidd">
         <div class="row-fluid">
             <div class="centering text-center">
@@ -72,6 +122,7 @@
 
 
     <div id="ll">
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -85,10 +136,12 @@
                         <a class="nav-link mr-xl-4 mr-lg-2 " href="{{url('/recipe')}}">Всі<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_by_category/first_dish')}}">Перші страви</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_by_category/first_dish')}}">Перші
+                            страви</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_by_category/second_dish')}}">Другі страви</a>
+                        <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_by_category/second_dish')}}">Другі
+                            страви</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mx-xl-4 mx-lg-2  " href="{{url('/search_by_category/salad')}}">Салати</a>
@@ -105,17 +158,7 @@
                     <li class="nav-item">
                         <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/search_by_category/drinks')}}">Напої</a>
                     </li>
-                    @if(isset($user) && 'admin' === $user->role)
-                        <li class="nav-item">
-                            <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/admin/recipe')}}">Панель керування</a>
-                        </li>
-                    @endif
-                    @if(isset($user) && 'member' === $user->role)
-                        <li class="nav-item">
-                            <a class="nav-link mx-xl-4 mx-lg-2 " href="{{url('/user/pre_confirm_recipe')}}">Панель
-                                керування</a>
-                        </li>
-                    @endif
+
                 </ul>
             </div>
         </nav>
@@ -147,12 +190,12 @@
                                 <p class="font-italic">Створено: {{\App\User::find($r->user_id)->name}}</p>
 
                             </div>
-
-
-                            <p class="ml-2 res_description">{{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}</p>
+                            @if(0 < strlen($r->recipe_description))
+                            <p class="ml-2 res_description">
+                                 {{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}
+                            </p>
+                            @endif
                         </div>
-
-
                     </div>
                 </div>
             @endif
@@ -169,8 +212,11 @@
                                 <p class="font-italic">Створено: {{\App\User::find($r->user_id)->name}}</p>
 
                             </div>
-                            <p class="ml-2 res_description">{{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}</p>
-
+                            @if(0 < strlen($r->recipe_description))
+                                <p class="ml-2 res_description">
+                                    {{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}
+                                </p>
+                            @endif
                         </div>
 
                     </div>

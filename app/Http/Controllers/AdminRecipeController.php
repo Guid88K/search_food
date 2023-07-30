@@ -21,7 +21,7 @@ class AdminRecipeController extends Controller
         return view(
             'admin.index',
             [
-                'recipe' => Recipe::where('is_published', '=', true)->get(),
+                'recipe' => Recipe::where('is_published', '=', true)->orderBy('updated_at', 'desc')->get(),
                 'user' => User::find(Auth::id()),
                 'pre_confirm' => Recipe::where('is_published', '=', false)->get(),
             ]
@@ -33,7 +33,7 @@ class AdminRecipeController extends Controller
         return view(
             'admin.to_confirm',
             [
-                'recipe' => Recipe::where('is_published', '=', true)->get(),
+                'recipe' => Recipe::where('is_published', '=', true)->orderBy('updated_at', 'desc')->get(),
                 'user' => User::find(Auth::id()),
                 'pre_confirm' => Recipe::where('is_published', '=', false)->get(),
             ]
@@ -68,6 +68,7 @@ class AdminRecipeController extends Controller
 
         $recipe->recipe_name = $request->name;
         $recipe->kind_of_recipe = $request->kind_of_recipe;
+        $recipe->is_published = true;
         $recipe->recipe_description = $request->description_for_recipe;
 
         $ing_for_array = [];
@@ -138,7 +139,7 @@ class AdminRecipeController extends Controller
         $user = User::find(Auth::id());
 
         $recipe = Recipe::find($id);
-        if (! ($request->file('main_image') == null)) {
+        if (!($request->file('main_image') == null)) {
             $file = $request->file('main_image');
             $destinationPath = 'upload';
             $file->move($destinationPath, $file->getClientOriginalName());
@@ -190,7 +191,7 @@ class AdminRecipeController extends Controller
             $dr->delete();
         }
 
-        foreach ($request->image as $key => $i) {
+        foreach ($request->image ?? [] as $key => $i) {
             $file = $i;
             $destinationPath = 'upload';
             $file->move($destinationPath, $file->getClientOriginalName());

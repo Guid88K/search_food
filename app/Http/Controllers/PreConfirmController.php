@@ -17,7 +17,7 @@ class PreConfirmController extends Controller
         return view(
             'preconfirm.index',
             [
-                'recipe' => Recipe::where('user_id', '=', Auth::id())
+                'recipe' => Recipe::where('user_id', '=', Auth::id())->orderBy('updated_at', 'desc')
                     ->get(),
                 'user' => User::find(Auth::id()),
             ]

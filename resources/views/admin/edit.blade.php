@@ -126,7 +126,7 @@
                                                 {{--                                                   aria-label="Text input with checkbox" name="ing[]"/>--}}
                                                 <input
                                                     type="text" class="form-control"
-                                                    aria-label="Text input with checkbox"
+                                                    aria-label="Text input with checkbox"  list="ing_for_create"
                                                     value="{{$i->ingredient_name}}" name="ing[]"/>
                                             </div>
                                             <input
@@ -316,7 +316,7 @@
                         '<div class="form-group">\n' +
                         '<div class="input-group mb-3">\n' +
                         '<div class="col-md-7 p-0">\n' +
-                        '<input type="text" class="form-control"\n' +
+                        '<input type="text" class="form-control"  list="ing_for_create"\n' +
                         'aria-label="Text input with checkbox" name="ing[]"/>\n' +
                         '</div>\n' +
                         '<input\n' +

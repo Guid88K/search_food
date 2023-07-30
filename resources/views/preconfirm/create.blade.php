@@ -114,17 +114,17 @@
                                 <label for="exampleFormControlInput1">Інгредієнти:</label>
                                 <div class="input-group mb-3">
                                     <div class="col-md-7 p-0">
-                                        {{--                                            <input type="text" class="form-control"--}}
-                                        {{--                                                   aria-label="Text input with checkbox" name="ing[]"/>--}}
                                         <input
-                                            type="text" class="form-control" list="ing"
-                                            aria-label="Text input with checkbox" name="ing[]"/>
+                                            type="text" class="form-control" list="ing_for_create"
+                                            aria-label="Text input with checkbox" name="ing[]"
+                                            autocomplete="off"/>
+
+                                        <datalist id="ing_for_create">
+                                            @foreach($ingredient as $i)
+                                                <option value="{{$i->name}}">{{$i->name}}</option>
+                                            @endforeach
+                                        </datalist>
                                     </div>
-                                    <datalist id="ing">
-                                        @foreach($ingredient as $i)
-                                            <option value="{{$i->name}}">{{$i->name}}</option>
-                                        @endforeach
-                                    </datalist>
                                     <input
                                         type="text" class="form-control col-xs-2 ml-3"
                                         aria-label="Text input with checkbox" name="count[]"/>
@@ -227,7 +227,7 @@
                         '<div class="form-group">\n' +
                         '<div class="input-group mb-3">\n' +
                         '<div class="col-md-7 p-0">\n' +
-                        '<input type="text" class="form-control"\n' +
+                        '<input type="text" class="form-control"  list="ing_for_create"\n' +
                         'aria-label="Text input with checkbox" name="ing[]"/>\n' +
                         '</div>\n' +
                         '<input\n' +

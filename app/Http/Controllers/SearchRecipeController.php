@@ -28,7 +28,6 @@ class SearchRecipeController extends Controller
 
         sort($not_null_ingredient);
         $recipe = DB::table('recipes')->paginate(10);
-
         foreach ($recipe as $key => $r) {
             if (count(
                 array_intersect($not_null_ingredient, explode(",", $r->ing_for_filter))
@@ -37,7 +36,6 @@ class SearchRecipeController extends Controller
                 unset($recipe[$key]);
             }
         }
-
         $count = Recipe::all();
 
         return view('pages.index', [

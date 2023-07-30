@@ -38,17 +38,19 @@ class RecipeController extends Controller
      */
     public function show($id)
     {
+        $user = User::find(Auth::id()) ?? null;
         $recipe = Recipe::find($id);
         $comments = Comments::where('recipe_id', $id)->get();
 
         return view(
             'pages.show',
             [
-            'recipe' => $recipe,
-            'food_ing' => $recipe->food_ing,
-            'food_recipe' => $recipe->food_recipe,
-            'comments' => $comments,
-        ],
+                'recipe' => $recipe,
+                'food_ing' => $recipe->food_ing,
+                'food_recipe' => $recipe->food_recipe,
+                'comments' => $comments,
+                'user' => $user
+            ],
             compact('recipe')
         );
     }

@@ -58,7 +58,8 @@
                             <div class="block-content border-bottom">
                                 <h4 class="font-size-h5 mb-10">{{$s->recipe_name}}</h4>
                                 <p class="text-muted">
-                                    <i class="fa fa-map-pin mr-5"></i>
+                                    @if(!$s->is_published) <i class="fa fa-map-pin mr-5 text-warning"> На підтверджені</i> @endif
+                                    @if($s->is_published) <i class="fa fa-map-pin mr-5 text-success"> Підтвережно </i> @endif
                                 </p>
                             </div>
                             <div class="block-content"></div>
