@@ -45,7 +45,8 @@ class PreConfirmController extends Controller
         if ($request->file('main_image') == null) {
             $recipe->recipe_image = 'default-image.jpg';
         } else {
-            $newName = uniqid('file_') . '.jpg';;
+            $newName = uniqid('file_') . '.jpg';
+            ;
             $file->move('upload', $newName);
             $recipe->recipe_image = $newName;
         }
@@ -86,7 +87,8 @@ class PreConfirmController extends Controller
         }
 
         foreach ($request->image as $key => $i) {
-            $newFoodStepName = uniqid('step_file_') . '.jpg';;
+            $newFoodStepName = uniqid('step_file_') . '.jpg';
+            ;
             $file = $i;
             $file->move('upload', $newFoodStepName);
             foreach ($request->description as $key1 => $d) {
@@ -117,7 +119,6 @@ class PreConfirmController extends Controller
             compact('recipe')
         );
     }
-
 
     public function destroy(int $id)
     {

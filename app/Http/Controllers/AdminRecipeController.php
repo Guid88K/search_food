@@ -103,7 +103,8 @@ class AdminRecipeController extends Controller
         }
 
         foreach ($request->image as $key => $i) {
-            $newFoodStepName = uniqid('step_file_') . '.jpg';;
+            $newFoodStepName = uniqid('step_file_') . '.jpg';
+            ;
             $file = $i;
             $file->move('upload', $newFoodStepName);
             foreach ($request->description as $key1 => $d) {
@@ -139,7 +140,7 @@ class AdminRecipeController extends Controller
         $user = User::find(Auth::id());
 
         $recipe = Recipe::find($id);
-        if (!($request->file('main_image') == null)) {
+        if (! ($request->file('main_image') == null)) {
             $file = $request->file('main_image');
             $destinationPath = 'upload';
             $file->move($destinationPath, $file->getClientOriginalName());
