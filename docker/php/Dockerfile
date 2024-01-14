@@ -1,33 +1,38 @@
-# Використовуємо офіційне зображення PHP з Apache
-FROM php:7.4-apache
+FROM php:8.3-fpm
 
-# Встановлюємо необхідні розширення PHP та пакет libpq-dev
-RUN apt-get update && \
-    apt-get install -y libzip-dev zip libpq-dev && \
-    docker-php-ext-install pdo pdo_pgsql
+# Arguments defined in docker.yml
+ARG user
+ARG uid
 
-# Встановлюємо Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip \
+    openssl \
+    libssl-dev \
+    libzip-dev \
+    libpq-dev
 
-# Встановлюємо необхідні пакети для Laravel
-RUN apt-get install -y libzip-dev zip && \
-    docker-php-ext-install zip
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Копіюємо файли Laravel в контейнер
-COPY . /var/www/html
+# Install PHP extensions
+RUN docker-php-ext-install pdo_pgsql
 
-# Встановлюємо права доступу
-RUN chown -R www-data:www-data /var/www/html
-RUN chmod -R 755 /var/www/html/storage
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Встановлюємо залежності Laravel
-RUN composer install
+# Create system user to run Composer and Artisan Commands
+RUN useradd -G www-data,root -u $uid -d /home/$user $user
+RUN mkdir -p /home/$user/.composer && \
+    chown -R $user:$user /home/$user
 
-# Копіюємо конфігураційний файл .env
-COPY .env.example .env
+# Set working directory
+WORKDIR /var/www
 
-# Генеруємо ключ за допомогою Artisan
-RUN php artisan key:generate
-
-# Команда для виконання при старті контейнера
-CMD php artisan serve --host=0.0.0.0 --port=9000
+USER $user

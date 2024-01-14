@@ -49,7 +49,7 @@ class RecipeController extends Controller
                 'food_ing' => $recipe->food_ing,
                 'food_recipe' => $recipe->food_recipe,
                 'comments' => $comments,
-                'user' => $user
+                'user' => $user,
             ],
             compact('recipe')
         );

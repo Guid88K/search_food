@@ -8,7 +8,7 @@ class Comments extends Model
 {
     protected $fillable = [
         'text',
-        'user_id'
+        'user_id',
     ];
 
     public function recipe()
