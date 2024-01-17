@@ -140,7 +140,7 @@ class AdminRecipeController extends Controller
         $user = User::find(Auth::id());
 
         $recipe = Recipe::find($id);
-        if (! ($request->file('main_image') == null)) {
+        if (!($request->file('main_image') == null)) {
             $file = $request->file('main_image');
             $destinationPath = 'upload';
             $file->move($destinationPath, $file->getClientOriginalName());

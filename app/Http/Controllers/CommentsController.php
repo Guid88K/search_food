@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Comments;
 use App\Recipe;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
@@ -12,8 +15,9 @@ class CommentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param Request $request
+     * @param int $id
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(Request $request, int $id)
     {
@@ -33,7 +37,7 @@ class CommentsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroy($id)
     {

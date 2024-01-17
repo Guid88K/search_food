@@ -13,6 +13,9 @@ services:
     working_dir: /var/www/
     volumes:
       - ./:/var/www
+    environment:
+      XDEBUG_CONFIG: "remote_host=host.docker.internal remote_enable=1"
+      PHP_IDE_CONFIG: "serverName=search_food"
     networks:
       - search_food
 
@@ -47,3 +50,7 @@ services:
 networks:
   search_food:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.220.0/28

@@ -27,6 +27,13 @@ RUN docker-php-ext-install pdo_pgsql
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Install xdebug
+RUN apt-get update && apt-get install -y wget git unzip \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+COPY docker/php/xdebug.ini /usr/local/etc/php/php.ini
+
 # Create system user to run Composer and Artisan Commands
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
