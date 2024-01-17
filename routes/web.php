@@ -36,5 +36,3 @@ Route::get('/search', 'SearchRecipeController@search')->name('search');
 Route::get('/search_by_category/{category}', 'SearchRecipeController@search_by_category');
 Route::post('/comment/{id}', 'CommentsController@store');
 Route::resource('comment', 'CommentsController', ['only' => ['destroy']]);
-
-Auth::routes();
