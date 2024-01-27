@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@php use App\User; @endphp
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+
 </head>
 <style>
     .navbar-custom {
@@ -23,19 +25,17 @@
             <a class="navbar-brand" href="{{ url('/') }}">
                 Search food
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
 
                 </ul>
-
-                <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">Вхід</a>
@@ -58,8 +58,8 @@
                                     керування</a>
                             </li>
                             @endif
-                        </li>
-                    @endguest
+                            </li>
+                        @endguest
                 </ul>
             </div>
         </div>
@@ -166,11 +166,8 @@
 
 
     <div class="container mt-5">
-
         @foreach($recipe as $r)
-
             @if($loop->index%2==0)
-
                 <div class="row d-flex  m-0 p-0">
 
                     <div
@@ -187,17 +184,18 @@
                             </a>
 
                             <div class="mt-4 mb-2 ml-ld-5 text-lg-right">
-                                <p class="font-italic">Створено: {{\App\User::find($r->user_id)->name}}</p>
+                                <p class="font-italic">Створено: {{User::find($r->user_id)->name}}</p>
 
                             </div>
                             @if(0 < strlen($r->recipe_description))
-                            <p class="ml-2 res_description">
-                                 {{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}
-                            </p>
+                                <p class="ml-2 res_description">
+                                    {{\mb_strcut(\strip_tags($r->recipe_description),0,300)."..."}}
+                                </p>
                             @endif
                         </div>
                     </div>
                 </div>
+
             @endif
             @if($loop->index%2==1)
                 <div class="row d-flex p-0 m-0">
@@ -209,12 +207,12 @@
                             </a>
 
                             <div class="mt-4 mb-2 ml-ld-5 text-lg-right">
-                                <p class="font-italic">Створено: {{\App\User::find($r->user_id)->name}}</p>
+                                <p class="font-italic">Створено: {{User::find($r->user_id)->name}}</p>
 
                             </div>
                             @if(0 < strlen($r->recipe_description))
                                 <p class="ml-2 res_description">
-                                    {{mb_strcut(strip_tags($r->recipe_description),1,300)."..."}}
+                                    {{mb_strcut(strip_tags($r->recipe_description),0,300)."..."}}
                                 </p>
                             @endif
                         </div>

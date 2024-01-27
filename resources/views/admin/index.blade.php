@@ -39,6 +39,28 @@
                 </a>
             </div>
 
+            <div class="col-6 col-md-4 col-xl-2">
+                <a class="block text-center" href="{{url('/user/recommendation')}} ">
+                    <div class="block-content bg-gd-primary">
+                        <p class="mt-5">
+                            <i class="si si-graduation fa-3x text-white-op"></i>
+                        </p>
+                        <p class="font-w600 text-white">Рекомендації</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-xl-2">
+                <a class="block text-center" href="{{url('/user/saved')}} ">
+                    <div class="block-content bg-gd-primary">
+                        <p class="mt-5">
+                            <i class="si si-heart fa-3x text-white-op"></i>
+                        </p>
+                        <p class="font-w600 text-white">Збережені</p>
+                    </div>
+                </a>
+            </div>
+
         </div>
 
         <div class="content">

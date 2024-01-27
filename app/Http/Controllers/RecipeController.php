@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comments;
 use App\Ingredient;
 use App\Recipe;
+use App\SavedRecipe;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,6 +42,8 @@ class RecipeController extends Controller
         $user = User::find(Auth::id()) ?? null;
         $recipe = Recipe::find($id);
         $comments = Comments::where('recipe_id', $id)->get();
+        $array = SavedRecipe::where('user_id', '=', Auth::id())->get();
+        $saved = reset($array)[0] ?? null;
 
         return view(
             'pages.show',
@@ -50,6 +53,7 @@ class RecipeController extends Controller
                 'food_recipe' => $recipe->food_recipe,
                 'comments' => $comments,
                 'user' => $user,
+                'saved' => $saved
             ],
             compact('recipe')
         );

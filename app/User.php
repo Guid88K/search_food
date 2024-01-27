@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -36,18 +37,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function isAdmin()
-    {
-        return $this->is_admin;
-    }
-
-    public function recipe()
+    public function recipe(): HasMany
     {
         return $this->hasMany('App\Recipe');
     }
 
-    public function comment()
+    public function comment(): HasMany
     {
         return $this->hasMany('App\Comments');
+    }
+
+    public function saved_recipe(): HasMany
+    {
+        return $this->hasMany('App\SavedRecipe');
+    }
+
+    public function poll(): HasMany
+    {
+        return $this->hasMany('App\UserPoll');
+    }
+
+    public function recommendation(): HasMany
+    {
+        return $this->hasMany('App\UserRecommendation');
     }
 }

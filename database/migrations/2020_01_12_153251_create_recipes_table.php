@@ -23,6 +23,8 @@ class CreateRecipesTable extends Migration
             $table->string('recipe_image');
             $table->boolean('is_published')->default(false);
             $table->string('ing_for_filter');
+            $table->string('calories');
+            $table->string('improve');
             $table->timestamps();
         });
     }
