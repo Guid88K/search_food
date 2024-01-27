@@ -31,10 +31,18 @@ class Recipe extends Model
         return $this->hasMany('App\FoodIng');
     }
 
-    public function comment()
+    public function comment(): HasMany
     {
         return $this->hasMany('App\Comments');
     }
 
+    public function saved_recipe(): HasMany
+    {
+        return $this->hasMany('App\SavedRecipe');
+    }
 
+    public function recommendation(): HasMany
+    {
+        return $this->hasMany('App\User');
+    }
 }

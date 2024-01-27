@@ -24,10 +24,6 @@
                             <div class="form-group">
                                 <div class="custom-file form">
                                 @csrf
-
-                                <!-- Populating custom file input label with the selected filename (data-toggle="custom-file-input" is initialized in Helpers.coreBootstrapCustomFileInput()) -->
-                                    <!-- When multiple files are selected, we use the word 'Files'. You can easily change it to your own language by adding the following to the input, eg for DE: data-lang-files="Dateien" -->
-
                                     <input type="file" class="custom-file-input" id="re-listing-photos"
                                            name="main_image"
                                            data-toggle="custom-file-input" multiple>
@@ -37,9 +33,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- END Photos -->
-
-                    <!-- Vital Info -->
 
                     <h2 class="content-heading text-black">Назва рецепту</h2>
                     <div class="row items-push">

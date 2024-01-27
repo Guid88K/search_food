@@ -16,10 +16,10 @@ class CreateFoodIngsTable extends Migration
         Schema::create('food_ings', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
-            $table->string('ingredient_name');
             $table->string('ingredient_count')->nullable();
             $table->string('ingredient_kind')->nullable();
             $table->integer('recipe_id');
+            $table->integer('ingredients_id');
             $table->timestamps();
         });
     }

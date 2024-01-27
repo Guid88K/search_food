@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@php use App\User; @endphp
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('fonts/font-awesome.min.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rye&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
 <div class="container-fluid  m-0 p-0">
@@ -63,18 +65,43 @@
         </nav>
     </div>
     <div class="row  p-0 m-0">
-        <div class="col-md-12">
-            <h1 class="text-md-center ml-lg-5 text-center  text-lg-left recipeName font-weight-bold mt-lg-3 mt-md-4">{{$recipe->recipe_name}}</h1>
-            <hr>
+        <div class="col-md-11">
+            <div class="">
+                <h1 class="text-md-center ml-lg-5 text-lg-left recipeName font-weight-bold mt-lg-3 mt-md-4">{{$recipe->recipe_name}}</h1>
+            </div>
         </div>
+        @if(isset(Auth::user()->id) && null === $saved)
+            <div class="col-md-1 mt-lg-3 mt-md-4 pt-3 "
+                 onclick="event.preventDefault();
+                    document.getElementById('save_recipe').submit();">
+                <i class="bi-save" style="font-size: 2em;"></i>
+            </div>
+        @endif
+        @if(isset(Auth::user()->id) && null !== $saved)
+            <div class="col-md-1 mt-lg-3 mt-md-4 pt-3 "
+                 onclick="event.preventDefault();
+                    document.getElementById('delete_saved').submit();">
+                <i class="bi-save-fill" style="font-size: 2em;"></i>
+            </div>
+        @endif
+<!--        url('comment', $recipe->id)-->
+        <form id="save_recipe" action="{{route('saved.store', $recipe->id)}}"
+              enctype="multipart/form-data" method="post">
+            @csrf
+        </form>
+
+        <form id="delete_saved" action="{{route('saved.destroy', $saved->id ?? '')}}"
+              method="post">
+            @csrf
+            @method('DELETE')
+        </form>
     </div>
+    <hr>
     <div class="row m-0 p-0">
         <div class="col-lg-10 mx-auto mt-3">
             <div class="mb-3 text-right">
-                <p class="font-italic">Створено: {{\App\User::find($recipe->user_id)->name}}</p>
-
+                <p class="font-italic">Створено: {{User::find($recipe->user_id)->name}}</p>
             </div>
-
         </div>
     </div>
     <div class="row m-0 p-0">
@@ -99,46 +126,27 @@
     </div>
     <div class="container">
         <div class="row p-0 m-0">
-
-
             @foreach($food_ing as $i)
-
                 @if($loop->index%2 == 0)
-
                     <div class="col-md-6 ">
-
-
                         <ul class="textCenter">
                             <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
                         </ul>
-
-
                     </div>
-
                 @endif
             @endforeach
             @foreach($food_ing as $i)
                 @if($loop->index%2 == 1)
-
                     <div class="col-md-6 ">
-
                         <ul class="textCenter">
                             <li>{{$i->ingredient_name}} {{$i->ingredient_count}} {{$i->ingredient_kind}}</li>
                         </ul>
-
-
                     </div>
-
                 @endif
-
             @endforeach
-
-
         </div>
     </div>
     <hr>
-
-
     <div class="container">
         <h2 class="text-center mb-4 fontGreat font-weight-bold ">Приготування</h2>
         @foreach($food_recipe as $fr)
@@ -192,7 +200,7 @@
                                         <span class="text-muted pull-right">
                                     <small class="text-muted">{{$c->created_at}}</small>
                                         </span>
-                                    <strong class="text-dark">{{\App\User::find($c->user_id)->name}}</strong>
+                                    <strong class="text-dark">{{User::find($c->user_id)->name}}</strong>
                                     <p>
                                         {{$c->text}}
                                     </p>

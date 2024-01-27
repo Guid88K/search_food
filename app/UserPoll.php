@@ -2,20 +2,13 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Comments extends Model
+class UserPoll extends Model
 {
-    protected $fillable = [
-        'text',
-        'user_id',
-    ];
-
-    public function recipe(): BelongsTo
-    {
-        return $this->belongsTo('App\Recipe');
-    }
+    use HasFactory;
 
     public function user(): BelongsTo
     {
